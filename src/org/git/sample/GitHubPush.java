@@ -17,23 +17,19 @@ public class GitHubPush {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\hp\\eclipse-workspace\\GitHubSample\\Driver\\chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+		WebDriver b = new ChromeDriver();
+		b.get("http://greenstech.in/selenium-course-content.html");
+		b.manage().window().maximize();
 
-		driver.get("https://www.google.co.in/webhp");
-		driver.manage().window().maximize();
+		Actions a = new Actions(b);
 
-		WebElement btngmail = driver.findElement(By.xpath("//a[text()='Gmail']"));
-		Actions a = new Actions(driver);
-		a.contextClick(btngmail).perform();
+		WebElement btncourses = b.findElement(By.xpath("//div[@class='header-browse-greens']"));
+		a.moveToElement(btncourses).perform();
+		WebElement btnsoftware = b.findElement(By.xpath("//span[text()='Software Testing (12)']"));
+		a.moveToElement(btnsoftware).perform();
 
-		Robot r = new Robot();
-
-		for (int i = 1; i <= 6; i++) {
-
-			r.keyPress(KeyEvent.VK_DOWN);
-
-		}
-		r.keyPress(KeyEvent.VK_ENTER);
+		WebElement btnselenium = b.findElement(By.xpath("//span[text()='Selenium Certification Training']"));
+		btnselenium.click();
 
 	}
 
