@@ -19,21 +19,29 @@ public class GitHubPush {
 
 		WebDriver driver = new ChromeDriver();
 
-		driver.get("https://www.google.co.in/webhp");
+		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
 
-		WebElement btngmail = driver.findElement(By.xpath("//a[text()='Gmail']"));
+		WebElement txtuser = driver.findElement(By.id("email"));
+		txtuser.sendKeys("Karthi");
+
+		WebElement userdbclik = driver.findElement(By.id("email"));
 		Actions a = new Actions(driver);
-		a.contextClick(btngmail).perform();
+		a.doubleClick(userdbclik).perform();
 
 		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_C);
+		r.keyRelease(KeyEvent.VK_C);
+		r.keyRelease(KeyEvent.VK_CONTROL);
 
-		for (int i = 1; i <= 6; i++) {
+		r.keyPress(KeyEvent.VK_TAB);
+		r.keyRelease(KeyEvent.VK_TAB);
 
-			r.keyPress(KeyEvent.VK_DOWN);
-
-		}
-		r.keyPress(KeyEvent.VK_ENTER);
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_CONTROL);
 
 	}
 
