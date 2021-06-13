@@ -17,16 +17,27 @@ public class GitHubPush {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\hp\\eclipse-workspace\\GitHubSample\\Driver\\chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+		WebDriver b = new ChromeDriver();
+		b.get("http://greenstech.in/selenium-course-content.html");
+		b.manage().window().maximize();
+		Actions a = new Actions(b);
 
-		driver.get("https://www.facebook.com/");
-		driver.manage().window().maximize();
+		WebElement btncourses = b.findElement(By.xpath("//div[@class='header-browse-greens']"));
+		a.moveToElement(btncourses).perform();
+		WebElement btnsoftware = b.findElement(By.xpath("//span[text()='Software Testing (12)']"));
+		a.moveToElement(btnsoftware).perform();
 
-		WebElement txtuser = driver.findElement(By.id("email"));
+		WebElement btnselenium = b.findElement(By.xpath("//span[text()='Selenium Certification Training']"));
+		btnselenium.click();
+
+		b.get("https://www.facebook.com/");
+		b.manage().window().maximize();
+
+		WebElement txtuser = b.findElement(By.id("email"));
 		txtuser.sendKeys("Karthi");
 
-		WebElement userdbclik = driver.findElement(By.id("email"));
-		Actions a = new Actions(driver);
+		WebElement userdbclik = b.findElement(By.id("email"));
+		Actions ac = new Actions(b);
 		a.doubleClick(userdbclik).perform();
 
 		Robot r = new Robot();
