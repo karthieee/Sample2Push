@@ -54,6 +54,11 @@ public class GitHubPush {
 		r.keyRelease(KeyEvent.VK_V);
 		r.keyRelease(KeyEvent.VK_CONTROL);
 
+		b.findElement(By.id("username")).sendKeys("karthi");
+		b.findElement(By.id("password")).sendKeys("123");
+		b.findElement(By.tagName("tr")).click();
+		
+
 	}
 
 }
