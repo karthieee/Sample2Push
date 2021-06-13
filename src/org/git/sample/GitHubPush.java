@@ -20,7 +20,6 @@ public class GitHubPush {
 		WebDriver b = new ChromeDriver();
 		b.get("http://greenstech.in/selenium-course-content.html");
 		b.manage().window().maximize();
-
 		Actions a = new Actions(b);
 
 		WebElement btncourses = b.findElement(By.xpath("//div[@class='header-browse-greens']"));
@@ -30,6 +29,30 @@ public class GitHubPush {
 
 		WebElement btnselenium = b.findElement(By.xpath("//span[text()='Selenium Certification Training']"));
 		btnselenium.click();
+
+		b.get("https://www.facebook.com/");
+		b.manage().window().maximize();
+
+		WebElement txtuser = b.findElement(By.id("email"));
+		txtuser.sendKeys("Karthi");
+
+		WebElement userdbclik = b.findElement(By.id("email"));
+		Actions ac = new Actions(b);
+		a.doubleClick(userdbclik).perform();
+
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_C);
+		r.keyRelease(KeyEvent.VK_C);
+		r.keyRelease(KeyEvent.VK_CONTROL);
+
+		r.keyPress(KeyEvent.VK_TAB);
+		r.keyRelease(KeyEvent.VK_TAB);
+
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_CONTROL);
 
 	}
 
